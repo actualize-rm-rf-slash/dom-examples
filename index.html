@@ -6,12 +6,21 @@
     .hidden {
       display: none;
     }
+    .red-text {
+      color: red;
+    }
+    .left-padding {
+      padding-left: 100px;
+    }
   </style>
 </head>
 <body>
   <h1 ondblclick="doSomething()" onmousemove="doSomethingElseAgain(event)">Alexander Hamilton</h1>
   
   <button onclick="toggleBio()">Toggle bio</button>
+  <button onclick="turnHeaderRed()">Red header</button>
+  <button onclick="addHeaderPadding()">Move header</button>
+  <button onclick="changeHeadingColor()">Random header color</button>
 
   <p onmousedown="doSomethingElse(event)">Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
   <p>The x coordinate is: </p>
@@ -38,6 +47,23 @@
       console.log("gonna hide the bio");
       var bioTag = document.querySelector('p');
       bioTag.classList.toggle('hidden');
+    }
+    function turnHeaderRed() {
+      var headerTag = document.querySelector('h1');
+      headerTag.classList.add('red-text');
+    }
+    function addHeaderPadding() {
+      var headerTag = document.querySelector('h1');
+      headerTag.classList.add('left-padding');
+    }
+    function changeHeadingColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      var headerTag = document.querySelector('h1');
+      headerTag.style['color'] = color;
     }
   </script>
 </body>
