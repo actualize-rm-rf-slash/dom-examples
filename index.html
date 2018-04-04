@@ -2,9 +2,17 @@
 <html>
 <head>
   <title>JavaScript Example</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <h1 ondblclick="doSomething()" onmousemove="doSomethingElseAgain(event)">Alexander Hamilton</h1>
+  
+  <button onclick="toggleBio()">Toggle bio</button>
+
   <p onmousedown="doSomethingElse(event)">Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
   <p>The x coordinate is: </p>
   <p class="x-coordinate">0</p>
@@ -25,6 +33,11 @@
       xtag.innerText = event.clientX;
       var ytag = document.querySelector(".y-coordinate");
       ytag.innerText = event.clientY;
+    }
+    function toggleBio() {
+      console.log("gonna hide the bio");
+      var bioTag = document.querySelector('p');
+      bioTag.classList.toggle('hidden');
     }
   </script>
 </body>
